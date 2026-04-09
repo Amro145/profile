@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
@@ -90,7 +90,36 @@
 
         .rtl {
             direction: rtl;
+        }
+
+        body.ar {
+            font-family: 'Almarai', sans-serif;
+        }
+
+        body.ar .hero-title,
+        body.ar .section-title {
+            font-family: 'Almarai', sans-serif;
+            font-weight: 800;
+        }
+
+        .lang-switch-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
             font-family: var(--font-primary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .lang-switch-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--accent-primary);
         }
 
         * {
@@ -812,39 +841,46 @@
         <div class="nav-container">
             <div class="logo">Amro.dev</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#solutions" data-i18n="nav_solutions">Solutions</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
             </ul>
-            <button class="mobile-toggle" id="mobileToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="lang-switch-btn" id="langSwitchBtn">
+                    <i class="fas fa-globe"></i>
+                    <span id="langText">العربية</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <p class="hero-subtitle">Full-Stack Developer</p>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Full-Stack Developer</p>
             <h1 class="hero-title">
-                Hi, I'm <span class="gradient-text">Amro Altayeb</span>
+                <span data-i18n="hero_title_hi">Hi, I'm</span> <span class="gradient-text" data-i18n="hero_name">Amro Altayeb</span>
             </h1>
-            <p class="hero-description">
+            <p class="hero-description" data-i18n="hero_desc">
                 I craft high-performance web applications using the MERN Stack, Next.js, and cutting-edge technologies.
                 Specializing in responsive, scalable, and performance-driven solutions with clean, maintainable code.
             </p>
             <p class="hero-description" style="font-size: 1.1rem; color: var(--accent-primary); margin-top: -1rem; margin-bottom: var(--spacing-xl);">
-                <strong>Business Value:</strong> I bridge the gap between complex engineering and commercial ROI, 
-                delivering software that automates growth and secures long-term scalability.
+                <strong data-i18n="hero_biz_label">Business Value:</strong> <span data-i18n="hero_biz_desc">I bridge the gap between complex engineering and commercial ROI, 
+                delivering software that automates growth and secures long-term scalability.</span>
             </p>
             <div class="hero-cta">
                 <a href="https://github.com/Amro145" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <i class="fab fa-github"></i> View Technical Work
+                    <i class="fab fa-github"></i> <span data-i18n="hero_cta_tech">View Technical Work</span>
                 </a>
                 <a href="https://wa.me/249965158196" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <i class="fas fa-handshake"></i> Business Consultation
+                    <i class="fas fa-handshake"></i> <span data-i18n="hero_cta_biz">Business Consultation</span>
                 </a>
             </div>
         </div>
@@ -902,8 +938,8 @@
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <p class="section-subtitle">My Expertise</p>
-                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle" data-i18n="skills_subtitle">My Expertise</p>
+                <h2 class="section-title" data-i18n="skills_title">Skills & Technologies</h2>
                 <p class="section-description">
                     A comprehensive toolkit built through real-world projects and continuous learning
                 </p>
@@ -999,34 +1035,34 @@
     <section id="solutions" style="background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);">
         <div class="container">
             <div class="section-header">
-                <p class="section-subtitle">Commercial Value</p>
-                <h2 class="section-title">Strategic Business Solutions</h2>
-                <p class="section-description">
+                <p class="section-subtitle" data-i18n="solutions_subtitle">Commercial Value</p>
+                <h2 class="section-title" data-i18n="solutions_title">Strategic Business Solutions</h2>
+                <p class="section-description" data-i18n="solutions_desc">
                     How my technical expertise translates into tangible growth and operational efficiency for your enterprise
                 </p>
             </div>
             <div class="skills-grid">
                 <div class="skill-category" style="border-top: 4px solid var(--accent-primary);">
-                    <h3><i class="fas fa-chart-line"></i> Operational ROI</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <h3><i class="fas fa-chart-line"></i> <span data-i18n="roi_title">Operational ROI</span></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n="roi_desc">
                         I develop systems designed to eliminate manual bottlenecks, reducing administrative overhead by up to 60% and redirecting human capital toward high-value growth initiatives.
                     </p>
                 </div>
                 <div class="skill-category" style="border-top: 4px solid var(--accent-secondary);">
-                    <h3><i class="fas fa-shield-virus"></i> Enterprise Scalability</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <h3><i class="fas fa-shield-virus"></i> <span data-i18n="scale_title">Enterprise Scalability</span></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n="scale_desc">
                         By leveraging Edge-native architectures and serverless computing, I ensure your platform grows seamlessly with your user base without exponential cost increases.
                     </p>
                 </div>
                 <div class="skill-category" style="border-top: 4px solid var(--accent-tertiary);">
-                    <h3><i class="fas fa-user-check"></i> Enhanced UX & Retention</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <h3><i class="fas fa-user-check"></i> <span data-i18n="ux_title">Enhanced UX & Retention</span></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n="ux_desc">
                         User-centric design isn't just aesthetic—it's functional. I build interfaces that increase user engagement and conversion rates through performance-first engineering.
                     </p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: var(--spacing-xl);">
-                <a href="#contact" class="btn btn-primary">
+                <a href="#contact" class="btn btn-primary" data-i18n="audit_btn">
                     Request a Business Solutions Audit <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -1037,9 +1073,9 @@
     <section id="projects">
         <div class="container">
             <div class="section-header">
-                <p class="section-subtitle">My Work</p>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-description">
+                <p class="section-subtitle" data-i18n="projects_subtitle">My Work</p>
+                <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
+                <p class="section-description" data-i18n="projects_desc">
                     A showcase of real-world applications demonstrating full-stack expertise and modern development
                     practices
                 </p>
@@ -1056,20 +1092,18 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">EduDash - School Management System</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="edudash_title">EduDash - School Management System</h3>
+                        <p class="project-description" data-i18n="edudash_desc">
                             A high-performance, multi-tenant school operations platform optimized for Cloudflare Edge.
                             Features a serverless GraphQL API and a modern Next.js frontend.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Multi-tenant architecture for scalability</li>
-                                <li>Serverless GraphQL API (Hono + Yoga)</li>
-                                <li>Cloudflare Edge-first deployment (Workers + D1)</li>
-                                <li>Enterprise Auth with RBAC (JWT/Zod)</li>
-                                <li>Responsive dashboard for school operations</li>
-                                <li>Real-time data synchronization</li>
+                                <li data-i18n="edudash_f1">Multi-tenant architecture for scalability</li>
+                                <li data-i18n="edudash_f2">Serverless GraphQL API (Hono + Yoga)</li>
+                                <li data-i18n="edudash_f3">Cloudflare Edge-first deployment (Workers + D1)</li>
+                                <li data-i18n="edudash_f4">Enterprise Auth with RBAC (JWT/Zod)</li>
                             </ul>
                         </div>
                         <div class="project-tech">
@@ -1077,12 +1111,10 @@
                             <span class="tech-badge">GraphQL</span>
                             <span class="tech-badge">Hono</span>
                             <span class="tech-badge">Cloudflare Workers</span>
-                            <span class="tech-badge">Drizzle ORM</span>
-                            <span class="tech-badge">Tailwind v4</span>
                         </div>
                         <div style="background: rgba(0, 212, 255, 0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-primary); margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--accent-primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Business Impact</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            <h4 style="color: var(--accent-primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;" data-i18n="project_biz_impact">Business Impact</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="edudash_impact">
                                 Streamlined school operations by centralizing fragmented data into a single multi-tenant dashboard. This solution reduces administrative time by half and provides 
                                 management with real-time academic analytics for better decision-making.
                             </p>
@@ -1090,21 +1122,21 @@
                         <div class="project-links">
                             <a href="https://github.com/Amro145/school-client" target="_blank" rel="noopener noreferrer"
                                 class="project-link project-link-primary">
-                                <i class="fab fa-github"></i> Frontend
+                                <i class="fab fa-github"></i> <span data-i18n="project_view_frontend">Frontend</span>
                             </a>
                             <a href="https://github.com/Amro145/school-mangemt-system-Api-GraphQl" target="_blank"
                                 rel="noopener noreferrer" class="project-link project-link-primary">
-                                <i class="fab fa-github"></i> Backend
+                                <i class="fab fa-github"></i> <span data-i18n="project_view_backend">Backend</span>
                             </a>
                         </div>
                         <div class="project-links" style="margin-top: 0.5rem;">
                             <a href="https://main.school-management-frontend-66i.pages.dev" target="_blank"
                                 rel="noopener noreferrer" class="project-link project-link-secondary">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                                <i class="fas fa-external-link-alt"></i> <span data-i18n="project_view_demo">Live Demo</span>
                             </a>
                             <a href="https://schoolapi.amroaltayeb14.workers.dev/graphql" target="_blank"
                                 rel="noopener noreferrer" class="project-link project-link-secondary">
-                                <i class="fas fa-vial"></i> API Playground
+                                <i class="fas fa-vial"></i> <span data-i18n="project_api_play">API Playground</span>
                             </a>
                         </div>
                     </div>
@@ -1117,38 +1149,34 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Feedback Intelligence Dashboard</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="feedback_title">Feedback Intelligence Dashboard</h3>
+                        <p class="project-description" data-i18n="feedback_desc">
                             A highly-scalable glassmorphism web dashboard served entirely from Edge Workers. It
                             autonomously intercepts live user feedback, extracting actionable sentiment via zero-shot
                             LLaMA-3 AI pipelines, and catalogs everything natively using semantic Vector Embeddings for
                             instant intuitive search.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Edge-triggered AI inference (LLaMA-3 8B)</li>
-                                <li>Semantic Native Search via CF Vectorize</li>
-                                <li>Background processing with Cloudflare Queues</li>
-                                <li>Global state management via Durable Objects</li>
-                                <li>Real-time glassmorphism Dashboard UI</li>
+                                <li data-i18n="feedback_f1">Edge-triggered AI inference (LLaMA-3 8B)</li>
+                                <li data-i18n="feedback_f2">Semantic Native Search via CF Vectorize</li>
+                                <li data-i18n="feedback_f3">Background processing with Cloudflare Queues</li>
                             </ul>
                         </div>
                         <div class="project-tech">
                             <span class="tech-badge">CF Workers</span>
                             <span class="tech-badge">Workers AI</span>
                             <span class="tech-badge">Vectorize</span>
-                            <span class="tech-badge">Durable Objects</span>
-                            <span class="tech-badge">TypeScript</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Amro145/Smart-Feed-Back" target="_blank"
                                 rel="noopener noreferrer" class="project-link project-link-primary">
-                                <i class="fab fa-github"></i> View Code
+                                <i class="fab fa-github"></i> <span data-i18n="project_view_code">View Code</span>
                             </a>
                             <a href="https://smart-feedback-processor.amroaltayeb14.workers.dev" target="_blank"
                                 rel="noopener noreferrer" class="project-link project-link-secondary">
-                                <i class="fas fa-external-link-alt"></i> Live Dashboard
+                                <i class="fas fa-external-link-alt"></i> <span data-i18n="project_view_demo">Live Demo</span>
                             </a>
                         </div>
                     </div>
@@ -1160,28 +1188,22 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">𝕏 Client - Modern Social Media</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="x_title">𝕏 Client - Modern Social Media</h3>
+                        <p class="project-description" data-i18n="x_desc">
                             A premium social media experience replicating X core features. Optimized for performance
                             with modern glassmorphism design, Redis caching, and real-time UI updates.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Modern Dark Mode UI (DaisyUI 5 / Tailwind 4)</li>
-                                <li>High-performance backend (Redis caching)</li>
-                                <li>Zod validation & Mongoose transactions</li>
-                                <li>Hybrid State Management (Redux + Zustand)</li>
-                                <li>Real-time likes, follows, and post updates</li>
-                                <li>Secure JWT Auth & Rate limiting</li>
+                                <li data-i18n="x_f1">Modern Dark Mode UI (DaisyUI 5)</li>
+                                <li data-i18n="x_f2">High-performance backend (Redis caching)</li>
+                                <li data-i18n="x_f3">Secure JWT Auth & Rate limiting</li>
                             </ul>
                         </div>
                         <div class="project-tech">
                             <span class="tech-badge">React 19</span>
-                            <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">Redis</span>
-                            <span class="tech-badge">Tailwind v4</span>
                             <span class="tech-badge">Zod</span>
                         </div>
                         <div class="project-links">
@@ -1213,19 +1235,17 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Next.js IMDb Clone</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="imdb_title">Next.js IMDb Clone</h3>
+                        <p class="project-description" data-i18n="imdb_desc">
                             A movie database application built with Next.js App Router and TMDb API.
                             Browse trends, search movies, and manage favorites with dark mode support.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Real-time search with TMDb API</li>
-                                <li>User favorites with MongoDB integration</li>
-                                <li>Dynamic Dark Mode implementation</li>
-                                <li>Next.js App Router architecture</li>
-                                <li>Fully responsive movie listings</li>
+                                <li data-i18n="imdb_f1">Real-time search with TMDb API</li>
+                                <li data-i18n="imdb_f2">User favorites with MongoDB integration</li>
+                                <li data-i18n="imdb_f3">Dynamic Dark Mode implementation</li>
                             </ul>
                         </div>
                         <div class="project-tech">
@@ -1255,20 +1275,17 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Modern Auth System</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="auth_title">Modern Auth System</h3>
+                        <p class="project-description" data-i18n="auth_desc">
                             Production-ready authentication service with email verification, password reset,
                             and secure session management using industry best practices.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Email verification via Mailtrap</li>
-                                <li>JWT Auth with HTTP-only cookies</li>
-                                <li>Bcrypt password hashing</li>
-                                <li>Framer Motion UI animations</li>
-                                <li>Zustand State Management</li>
-                                <li>Secure Reset Password flow</li>
+                                <li data-i18n="auth_f1">Email verification via Mailtrap</li>
+                                <li data-i18n="auth_f2">JWT Auth with HTTP-only cookies</li>
+                                <li data-i18n="auth_f3">Bcrypt password hashing</li>
                             </ul>
                         </div>
                         <div class="project-tech">
@@ -1311,33 +1328,28 @@
                             style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Task Manager App</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="task_title">Task Manager App</h3>
+                        <p class="project-description" data-i18n="task_desc">
                             A comprehensive task management and productivity application designed to help teams and
                             individuals organize their workflows. Features drag-and-drop boards, real-time updates, and
                             robust user authentication.
                         </p>
                         <div class="project-features">
-                            <h4>Key Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Interactive Kanban Boards</li>
-                                <li>Real-time progress tracking</li>
-                                <li>Secure User Authentication (JWT)</li>
-                                <li>Responsive dark mode UI</li>
-                                <li>RESTful API integration</li>
+                                <li data-i18n="task_f1">Interactive Kanban Boards</li>
+                                <li data-i18n="task_f2">Secure User Authentication (JWT)</li>
+                                <li data-i18n="task_f3">Responsive dark mode UI</li>
                             </ul>
                         </div>
                         <div class="project-tech">
                             <span class="tech-badge">React</span>
                             <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">Express</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">Tailwind CSS</span>
                             <span class="tech-badge">Redux</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid #666; margin-bottom: 1.5rem;">
-                            <h4 style="color: #ccc; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Business Impact</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            <h4 style="color: #ccc; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;" data-i18n="project_biz_impact">Business Impact</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="task_impact">
                                 Increases team accountability and project transparency. By providing a real-time overview of tasks, businesses can identify bottlenecks 
                                 early and improve overall delivery speed.
                             </p>
@@ -1364,45 +1376,7 @@
                 <!-- ADDITIVE BUSINESS SOLUTIONS: New Priority Projects -->
                 
                 <!-- Project: ClinicConnect Doctor's Booking System -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <img src="shield-lock-multi-levels-security-system-wide-concept.webp" alt="Clinic Booking System"
-                            style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ClinicConnect: Smart Booking Ecosystem</h3>
-                        <p class="project-description">
-                            A highly-available medical appointment and queue management system designed for seamless clinic operations.
-                        </p>
-                        <div class="project-features">
-                            <h4>Technical Features</h4>
-                            <ul>
-                                <li>Real-time automated queue management</li>
-                                <li>Patient notification system (Email/SMS)</li>
-                                <li>Zero-conflict scheduling logic</li>
-                                <li>Secure patient data encryption</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Next.js 15</span>
-                            <span class="tech-badge">Tailwind v4</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">PostgreSQL</span>
-                        </div>
-                        <div style="background: rgba(0, 212, 255, 0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-primary); margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--accent-primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Client Perspective & Impact</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                                Solves the issue of missed revenue due to appointment no-shows and scheduling chaos. This system reduced patient waiting times by 50% 
-                                and increased clinic capacity by automating the entire flow from booking to notification.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://wa.me/249965158196" class="project-link project-link-primary">
-                                <i class="fas fa-calendar-check"></i> Optimize Your Workflow
-                            </a>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <!-- Project: Autonomous Business WhatsApp Bot -->
                 <div class="project-card">
@@ -1410,17 +1384,15 @@
                         <div style="font-size: 5rem; color: white;"><i class="fab fa-whatsapp"></i></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Smart Business Bot (whatsapp-web.js)</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="bot_title">Smart Business Bot (whatsapp-web.js)</h3>
+                        <p class="project-description" data-i18n="bot_desc">
                             A 24/7 intelligent automation layer that bridges communication between businesses and their customers natively on WhatsApp.
                         </p>
                         <div class="project-features">
-                            <h4>Technical Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>Autonomous lead qualification flow</li>
-                                <li>`whatsapp-web.js` integration</li>
-                                <li>Natural Language Processing (NLP) integration</li>
-                                <li>CRM data synchronization</li>
+                                <li data-i18n="bot_f1">Autonomous lead qualification flow</li>
+                                <li data-i18n="bot_f2">NLP integration for auto-replies</li>
                             </ul>
                         </div>
                         <div class="project-tech">
@@ -1430,15 +1402,15 @@
                             <span class="tech-badge">OpenAI/Gemini</span>
                         </div>
                         <div style="background: rgba(56, 239, 125, 0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid #38ef7d; margin-bottom: 1.5rem;">
-                            <h4 style="color: #38ef7d; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Client Perspective & Impact</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            <h4 style="color: #38ef7d; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;" data-i18n="project_biz_impact">Business Impact</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="bot_impact">
                                 Eliminates the need for manual customer service during off-hours. This bot captures 3x more leads by providing instant replies to FAQs 
                                 and qualifying prospects before routing them to human agents, reducing operational support costs by 70%.
                             </p>
                         </div>
                         <div class="project-links">
                             <a href="https://wa.me/249965158196" class="project-link project-link-primary">
-                                <i class="fas fa-robot"></i> Automate Your Support
+                                <i class="fas fa-robot"></i> <span data-i18n="bot_cta">Automate Your Support</span>
                             </a>
                         </div>
                     </div>
@@ -1447,21 +1419,19 @@
                 <!-- Project: Study For Sudan Platform -->
                 <div class="project-card">
                     <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <img src="Gemini_Generated_Image_5fuva85fuva85fuv.png" alt="Study For Sudan"
+                        <img src="image.png" alt="Study For Sudan"
                             style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Study For Sudan: Scalable Educational Hub</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-i18n="sudan_title">Study For Sudan: Scalable Educational Hub</h3>
+                        <p class="project-description" data-i18n="sudan_desc">
                             A resilient and user-centric platform built to deliver educational resources during regional connectivity crises.
                         </p>
                         <div class="project-features">
-                            <h4>Technical Features</h4>
+                            <h4 data-i18n="key_features">Key Features</h4>
                             <ul>
-                                <li>High-availability distributed architecture</li>
-                                <li>Low-latency resource fetching logic</li>
-                                <li>Server-side rendering (SSR) for SEO</li>
-                                <li>Mobile-first responsive optimization</li>
+                                <li data-i18n="sudan_f1">High-availability distributed architecture</li>
+                                <li data-i18n="sudan_f2">Mobile-first responsive optimization</li>
                             </ul>
                         </div>
                         <div class="project-tech">
@@ -1471,15 +1441,15 @@
                             <span class="tech-badge">Tailwind CSS</span>
                         </div>
                         <div style="background: rgba(245, 87, 108, 0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid #f5576c; margin-bottom: 1.5rem;">
-                            <h4 style="color: #f5576c; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Client Perspective & Impact</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            <h4 style="color: #f5576c; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;" data-i18n="project_biz_impact">Business Impact</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="sudan_impact">
                                 A case study in building essential infrastructure under pressure. The platform connected over 10,000 students 
                                 with vital learning resources, proving that scalable design can maintain societal continuity even in difficult environments.
                             </p>
                         </div>
                         <div class="project-links">
                             <a href="https://studyforsudan.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">
-                                <i class="fab fa-github"></i> Scale Your Vision
+                                <i class="fab fa-github"></i> <span data-i18n="sudan_cta">Scale Your Vision</span>
                             </a>
                         </div>
                     </div>
@@ -1492,22 +1462,17 @@
     <!-- NEW CTA BANNER: Get a Custom Quote -->
     <section style="background: var(--card-bg); border-top: 1px solid var(--border-color); padding: var(--spacing-xl) var(--spacing-lg);">
         <div class="container" style="text-align: center;">
-            <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: var(--spacing-sm);">Ready to Automate Your Business?</h2>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg);">
+            <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: var(--spacing-sm);" data-i18n="ready_title">Ready to Automate Your Business?</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg);" data-i18n="ready_desc">
                 Stop wasting time on manual processes. Let's build a custom software solution that puts your growth on autopilot.
             </p>
             <div class="hero-cta">
                 <a href="https://wa.me/249965158196" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-file-invoice-dollar"></i> Get a Custom Solution Quote
+                    <i class="fas fa-file-invoice-dollar"></i> <span data-i18n="get_quote">Get a Custom Solution Quote</span>
                 </a>
                 <a href="mailto:amroaltayeb14@gmail.com" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Request a Business Consultation
+                    <i class="fas fa-envelope"></i> <span data-i18n="request_consult">Request a Business Consultation</span>
                 </a>
-            </div>
-        </div>
-    </section>
-
-
             </div>
         </div>
     </section>
@@ -1533,10 +1498,9 @@
                 </a>
             </div>
             <p class="footer-text">
-                © 2025 <a href="https://github.com/Amro145">Amro Altayeb</a>. Built with passion and modern web
-                technologies.
+                © 2025 <a href="https://github.com/Amro145">Amro Altayeb</a>. <span data-i18n="footer_passion">Built with passion and modern web technologies.</span>
             </p>
-            <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.85rem;" data-i18n="footer_dev_by">
                 Designed & Developed by Amro Altayeb
             </p>
         </div>
@@ -1548,6 +1512,243 @@
     </button>
 
     <script>
+        // Language Translation Dictionary
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_solutions: "Solutions",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_subtitle: "Full-Stack Developer",
+                hero_title_hi: "Hi, I'm",
+                hero_name: "Amro Altayeb",
+                hero_desc: "I craft high-performance web applications using the MERN Stack, Next.js, and cutting-edge technologies. Specializing in responsive, scalable, and performance-driven solutions with clean, maintainable code.",
+                hero_biz_label: "Business Value:",
+                hero_biz_desc: "I bridge the gap between complex engineering and commercial ROI, delivering software that automates growth and secures long-term scalability.",
+                hero_cta_tech: "View Technical Work",
+                hero_cta_biz: "Business Consultation",
+                lang_text: "العربية",
+                // Sections titles
+                skills_subtitle: "My Expertise",
+                skills_title: "Skills & Technologies",
+                solutions_subtitle: "Commercial Value",
+                solutions_title: "Strategic Business Solutions",
+                solutions_desc: "How my technical expertise translates into tangible growth and operational efficiency for your enterprise",
+                roi_title: "Operational ROI",
+                roi_desc: "I develop systems designed to eliminate manual bottlenecks, reducing administrative overhead by up to 60% and redirecting human capital toward high-value growth initiatives.",
+                scale_title: "Enterprise Scalability",
+                scale_desc: "By leveraging Edge-native architectures and serverless computing, I ensure your platform grows seamlessly with your user base without exponential cost increases.",
+                ux_title: "Enhanced UX & Retention",
+                ux_desc: "User-centric design isn't just aesthetic—it's functional. I build interfaces that increase user engagement and conversion rates through performance-first engineering.",
+                audit_btn: "Request a Business Solutions Audit",
+                projects_subtitle: "My Work",
+                projects_title: "Featured Projects",
+                projects_desc: "A showcase of real-world applications demonstrating full-stack expertise and modern development practices",
+                project_biz_impact: "Business Impact",
+                project_view_demo: "Live Demo",
+                project_view_code: "View Code",
+                project_view_frontend: "Frontend",
+                project_view_backend: "Backend",
+                key_features: "Key Features",
+                // Project Specifics
+                edudash_title: "EduDash - School Management System",
+                edudash_desc: "A high-performance, multi-tenant school operations platform optimized for Cloudflare Edge. Features a serverless GraphQL API and a modern Next.js frontend.",
+                edudash_impact: "Streamlined school operations by centralizing fragmented data into a single multi-tenant dashboard. This solution reduces administrative time by half and provides management with real-time academic analytics for better decision-making.",
+                edudash_f1: "Multi-tenant architecture for scalability",
+                edudash_f2: "Serverless GraphQL API (Hono + Yoga)",
+                edudash_f3: "Cloudflare Edge-first deployment (Workers + D1)",
+                edudash_f4: "Enterprise Auth with RBAC (JWT/Zod)",
+                clinic_title: "ClinicConnect: Smart Booking Ecosystem",
+                clinic_desc: "A highly-available medical appointment and queue management system designed for seamless clinic operations.",
+                clinic_impact: "Solves the issue of missed revenue due to appointment no-shows and scheduling chaos. This system reduced patient waiting times by 50% and increased clinic capacity by automating the entire flow from booking to notification.",
+                clinic_f1: "Real-time automated queue management",
+                clinic_f2: "Patient notification system (Email/SMS)",
+                bot_title: "Smart Business Bot (whatsapp-web.js)",
+                bot_desc: "A 24/7 intelligent automation layer that bridges communication between businesses and their customers natively on WhatsApp.",
+                bot_impact: "Eliminating manual customer service during off-hours. This bot captures 3x more leads by providing instant replies to FAQs and qualifying prospects before routing them, reducing support costs by 70%.",
+                bot_f1: "Autonomous lead qualification flow",
+                bot_f2: "NLP integration for auto-replies",
+                sudan_title: "Study For Sudan: Scalable Educational Hub",
+                sudan_desc: "A resilient and user-centric platform built to deliver educational resources during regional connectivity crises.",
+                sudan_impact: "A case study in building essential infrastructure under pressure. The platform connected over 10,000 students with vital learning resources, proving that scalable design can maintain societal continuity.",
+                sudan_f1: "High-availability distributed architecture",
+                sudan_f2: "Mobile-first responsive optimization",
+                feedback_title: "Feedback Intelligence Dashboard",
+                feedback_desc: "A highly-scalable glassmorphism web dashboard served entirely from Edge Workers. It autonomously intercepts live user feedback via LLaMA-3 AI pipelines.",
+                feedback_f1: "Edge-triggered AI inference (LLaMA-3 8B)",
+                feedback_f2: "Semantic Native Search via CF Vectorize",
+                feedback_f3: "Background processing with Cloudflare Queues",
+                x_title: "𝕏 Client - Modern Social Media",
+                x_desc: "A premium social media experience replicating X core features. Optimized for performance with Redis caching and real-time UI updates.",
+                x_f1: "Modern Dark Mode UI (DaisyUI 5)",
+                x_f2: "High-performance backend (Redis caching)",
+                x_f3: "Secure JWT Auth & Rate limiting",
+                task_title: "Task Manager App",
+                task_desc: "A comprehensive task management and productivity application designed to help teams and individuals organize their workflows.",
+                task_impact: "Increases team accountability and project transparency. By providing a real-time overview of tasks, businesses can identify bottlenecks early and improve overall delivery speed.",
+                task_f1: "Interactive Kanban Boards",
+                task_f2: "Secure User Authentication (JWT)",
+                task_f3: "Responsive dark mode UI",
+                imdb_title: "Next.js IMDb Clone",
+                imdb_desc: "A movie database application built with Next.js App Router and TMDb API. Browse trends, search movies, and manage favorites with dark mode support.",
+                imdb_f1: "Real-time search with TMDb API",
+                imdb_f2: "User favorites with MongoDB integration",
+                imdb_f3: "Dynamic Dark Mode implementation",
+                auth_title: "Modern Auth System",
+                auth_desc: "Production-ready authentication service with email verification, password reset, and secure session management using industry best practices.",
+                auth_f1: "Email verification via Mailtrap",
+                auth_f2: "JWT Auth with HTTP-only cookies",
+                auth_f3: "Bcrypt password hashing",
+                clinic_cta: "Optimize Your Workflow",
+                bot_cta: "Automate Your Support",
+                sudan_cta: "Scale Your Vision",
+                // CTAs
+                ready_title: "Ready to Automate Your Business?",
+                ready_desc: "Stop wasting time on manual processes. Let's build a custom software solution that puts your growth on autopilot.",
+                get_quote: "Get a Custom Solution Quote",
+                request_consult: "Request a Business Consultation",
+                footer_passion: "Built with passion and modern web technologies.",
+                footer_dev_by: "Designed & Developed by Amro Altayeb"
+            },
+            ar: {
+                nav_home: "الرئيسية",
+                nav_about: "من أنا",
+                nav_skills: "المهارات",
+                nav_solutions: "الحلول",
+                nav_projects: "المشاريع",
+                nav_contact: "اتصل بي",
+                hero_subtitle: "مطور تطبيقات ويب متكاملة (Full-Stack)",
+                hero_title_hi: "مرحباً، أنا",
+                hero_name: "عمرو الطيب",
+                hero_desc: "أقوم ببناء تطبيقات ويب عالية الأداء باستخدام MERN Stack و Next.js وأحدث التقنيات البرمجية. متخصص في الحلول القابلة للتوسع والقائمة على الأداء مع كود برمجى نظيف وقابل للصيانة.",
+                hero_biz_label: "قيمة الأعمال:",
+                hero_biz_desc: "أقوم بسد الفجوة بين الهندسة المعقدة والعائد التجاري على الاستثمار، وأقدم برمجيات تؤتمت النمو وتضمن الاستقرار على المدى الطويل.",
+                hero_cta_tech: "عرض الأعمال التقنية",
+                hero_cta_biz: "استشارة تجارية",
+                lang_text: "English",
+                // Sections titles
+                skills_subtitle: "خبراتي",
+                skills_title: "المهارات والتقنيات",
+                solutions_subtitle: "القيمة التجارية",
+                solutions_title: "حلول الأعمال الاستراتيجية",
+                solutions_desc: "كيف تترجم خبرتي التقنية إلى نمو ملموس وكفاءة تشغيلية لمؤسستك",
+                roi_title: "العائد التشغيلي (ROI)",
+                roi_desc: "أقوم بتطوير أنظمة مصممة للقضاء على الاختناقات اليدوية، مما يقلل الأعباء الإدارية بنسبة تصل إلى 60% ويوجه الكوادر البشرية نحو مبادرات النمو القيمة.",
+                scale_title: "قابلية التوسع للمؤسسات",
+                scale_desc: "من خلال الاستفادة من بنيات Edge-native والحوسبة بدون خادم (Serverless)، أضمن نمو منصتك بسلاسة مع زيادة قاعدتك الجماهيرية دون زيادات هائلة في التكلفة.",
+                ux_title: "تجربة مستخدم محسنة واستبقاء",
+                ux_desc: "التصميم المتمحور حول المستخدم ليس مجرد جماليات بل وظيفة. أقوم ببناء واجهات تزيد من تفاعل المستخدم ومعدلات التحويل من خلال الهندسة القائمة على الأداء.",
+                audit_btn: "طلب تدقيق لحلول الأعمال",
+                projects_subtitle: "أعمالي",
+                projects_title: "المشاريع المميزة",
+                projects_desc: "مجموعة من التطبيقات الواقعية التي تظهر خبرتي في التطوير المتكامل والممارسات الحديثة",
+                project_biz_impact: "أثر الأعمال",
+                project_view_demo: "عرض مباشر",
+                project_view_code: "عرض الكود",
+                project_view_frontend: "الواجهة الأمامية",
+                project_view_backend: "الواجهة الخلفية",
+                key_features: "الميزات الأساسية",
+                // Project Specifics
+                edudash_title: "نظام إيدوداش - لإدارة المدارس",
+                edudash_desc: "منصة عمليات مدرسية عالية الأداء ومتعددة المستأجرين محسنة لخدمات Cloudflare Edge. تتميز بواجهة برمجة تطبيقات GraphQL بدون خادم وواجهة Next.js حديثة.",
+                edudash_impact: "تبسيط العمليات المدرسية عن طريق تركيز البيانات المجزأة في لوحة تحكم واحدة. يقلل هذا الحل من الوقت الإداري إلى النصف ويزود الإدارة بتحليلات أكاديمية في الوقت الفعلي لاتخاذ قرارات أفضل.",
+                edudash_f1: "بنية متعددة المستأجرين لقابلية التوسع",
+                edudash_f2: "واجهة برمجة تطبيقات GraphQL بدون خادم",
+                edudash_f3: "نشر على Edge بالكامل (Cloudflare)",
+                edudash_f4: "نظام صلاحيات متطور للمؤسسات",
+                clinic_title: "نظام ClinicConnect: حجز ذكي للعيادات",
+                clinic_desc: "نظام إدارة المواعيد والانتظار الطبي عالي التوفر مصمم لعمليات العيادات السلسة.",
+                clinic_impact: "يحل مشكلة الإيرادات المفقودة بسبب عدم الحضور وفوضى الجدولة. قلل هذا النظام أوقات انتظار المرضى بنسبة 50% وزاد من قدرة العيادة الاستيعابية من خلال أتمتة تدفق العمل بالكامل.",
+                clinic_f1: "إدارة طابور الانتظار آلياً في الوقت الفعلي",
+                clinic_f2: "نظام إشعارات للمرضى (بريد/رسائل)",
+                bot_title: "بوت الأعمال الذكي (whatsapp-web.js)",
+                bot_desc: "طبقة أتمتة ذكية تعمل على مدار الساعة طوال الأسبوع لتعزيز التواصل بين الشركات وعملائها عبر تطبيق واتساب.",
+                bot_impact: "القضاء على خدمة العملاء اليدوية خارج ساعات العمل. يلتقط هذا البوت 3 أضعاف العملاء المحتملين من خلال الرد الفوري على الاستفسارات المتكررة، مما يقلل تكاليف الدعم بنسبة 70%.",
+                bot_f1: "مسار تأهيل العملاء تلقائياً",
+                bot_f2: "تكامل NLP للردود الذكية",
+                sudan_title: "منصة Study For Sudan: مركز تعليمي متكامل",
+                sudan_desc: "منصة مرنة مخصصة لتقديم الموارد التعليمية خلال أزمات الاتصال الإقليمية.",
+                sudan_impact: "دراسة حالة في بناء البنية التحتية الأساسية تحت الضغط. نجحت المنصة في ربط أكثر من 10,000 طالب بموارد تعليمية حيوية، مما أثبت أن التصميم القابل للتوسع يمكنه الحفاظ على التماسك المجتمعي.",
+                sudan_f1: "بنية موزعة عالية التوفر",
+                sudan_f2: "تحسين الواجهة لأجهزة الموبايل أولاً",
+                feedback_title: "لوحة تحكم ذكاء الملاحظات",
+                feedback_desc: "لوحة تحكم تعتمد على تأثير الزجاج (Glassmorphism) تعمل بالكامل على Edge Workers. تعتمد على معالجة AI عبر LLaMA-3 لتحليل آراء المستخدمين تلقائياً.",
+                feedback_f1: "استنتاج AI فوري (LLaMA-3)",
+                feedback_f2: "بحث دلالي فوري باستخدام Vectorize",
+                feedback_f3: "تجهيز البيانات في الخلفية عبر Queues",
+                x_title: "𝕏 Client - شبكة اجتماعية حديثة",
+                x_desc: "تجربة تواصل اجتماعي متميزة تحاكي ميزات منصة إكس الأساسية. محسنة للأداء باستخدام ذاكرة Redis وتحديثات الواجهة في الوقت الفعلي.",
+                x_f1: "واجهة حديثة تدعم الوضع الليلي",
+                x_f2: "أداء عالٍ مع تخزين Redis المؤقت",
+                x_f3: "نظام حماية وتحديد معدل الاستخدام",
+                task_title: "نظام إدارة المهام ProjectFlow",
+                task_desc: "تطبيق شامل لإدارة المهام والإنتاجية مصمم لمساعدة الفرق والأفراد على تنظيم سير العمل الخاص بهم.",
+                task_impact: "يزيد من مساءلة الفريق وشفافية المشروع. من خلال توفير نظرة عامة فورية على المهام، يمكن للشركات تحديد الاختناقات مبكراً وتحسين سرعة التسليم الإجمالية.",
+                task_f1: "لوحات كانبان تفاعلية",
+                task_f2: "نظام تسجيل دخول آمن للمستخدمين",
+                task_f3: "واجهة متوافقة مع جميع الأجهزة",
+                imdb_title: "نسخة IMDb المطورة (Next.js)",
+                imdb_desc: "تطبيق قاعدة بيانات أفلام مبني باستخدام Next.js App Router و TMDb API. تصفح الاتجاهات، ابحث عن الأفلام، وادارة المفضلة مع دعم الوضع الليلي.",
+                imdb_f1: "بحث مباشر باستخدام TMDb API",
+                imdb_f2: "مفضلة المستخدم مع MongoDB",
+                imdb_f3: "تطبيق الوضع الليلي الديناميكي",
+                auth_title: "نظام مصادقة مستخدم حديث",
+                auth_desc: "خدمة مصادقة جاهزة للإنتاج مع التحقق من البريد الإلكتروني وإعادة تعيين كلمة المرور وإدارة الجلسات الآمنة باستخدام أفضل الممارسات.",
+                auth_f1: "التحقق من البريد عبر Mailtrap",
+                auth_f2: "مصادقة JWT مع HTTP-only cookies",
+                auth_f3: "تشفير كلمات المرور عبر Bcrypt",
+                clinic_cta: "حسّن سير عملك الآن",
+                bot_cta: "أتمت دعمك الفني",
+                sudan_cta: "وسّع رؤيتك",
+                // CTAs
+                ready_title: "جاهز لأتمتة أعمالك؟",
+                ready_desc: "توقف عن إضاعة الوقت في العمليات اليدوية. دعنا نبني حلاً برمجياً مخصصاً يضع نموك على الطيار الآلي.",
+                get_quote: "احصل على عرض سعر لحل مخصص",
+                request_consult: "اطلب استشارة تجارية",
+                footer_passion: "صُنع بشغف وباستخدام أحدث تقنيات الويب.",
+                footer_dev_by: "تم التصميم والبرمجة بواسطة عمرو الطيب"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('preferredLang', currentLang);
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.body.classList.toggle('ar', lang === 'ar');
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('langText').textContent = translations[lang].lang_text;
+            
+            // Re-apply reveal animations properly in RTL
+            observer.disconnect();
+            document.querySelectorAll('.project-card, .skill-category').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.getElementById('langSwitchBtn').addEventListener('click', toggleLanguage);
+
+        // Load saved language
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            currentLang = savedLang;
+            applyLanguage(currentLang);
+        });
+
         // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
